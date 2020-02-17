@@ -6,7 +6,7 @@ dots...
 
 ## Introduction
 
-My aim is to create a project that
+My ultimate aim is to create a project that
 can be used as a template for future projects with the following
 characteristics:
 * Command / Query Responsibility Segregation (CQRS)
@@ -26,6 +26,9 @@ The components that I want to combine are:
 * Nix (to manage dependencies)
 * Axon Server (for event storage, message routing, and scalability)
 * Envoy (for service mesh architecture and high availability)
+
+This project is a template for a gRPC enabled Go back-end that can be built with Nix.
+The saga continues in [archetype-go-axon](https://github.com/jeroenvanmaanen/archetype-go-axon)
 
 ## Setup
 
@@ -60,3 +63,17 @@ I generated Go stubs for axon-server as follows:
 [container]# cd /src/axon-server-api/src/main/proto
 [container]# bash WORKING_AREA/archetype-nix-go/src/bin/generate-proto-package.sh
 ```
+
+To run the whole setup, execute the bash script `src/docker/docker-compose-up.sh`.
+Then from the root of the project in another terminal window:
+```
+[host]$ docker exec -ti -w "$(pwd)" example_example_1 bash
+[container]# result/bin/example
+```
+The last command outputs something like:
+```
+3
+primary:<host_name:"7b43732c1846" grpc_port:8124 http_port:8024 node_name:"7b43732c1846" > same_connection:true 
+xxx
+```
+which proves that it could reach Axon Server through gRPC.
