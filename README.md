@@ -1,8 +1,6 @@
 # Archetype of a Go project that can be built with Nix
 
-This project is still **Work In Progress**. I think I've got most of
-the necessary dependencies lined up, but I still have to connect the  
-dots...
+This project is just the first step in an ambitious journey. I believe that it is useful in its own right, so I'll keep it around as a separate project and use it as a basis for other, more specific, projects.
 
 ## Introduction
 
